@@ -19,8 +19,18 @@
         <section>
             <div class="container">
                 <h1>AudoraPlay</h1>
+
+                
                 <p><a href="index.html">Zurück zur Eingabe</a></p>
+                <!-- 
                 <audio id="playAudio" controls oncontextmenu="return false;"></audio>
+            -->
+
+            <audio id="playAudio"></audio>
+                  
+                <button onclick="document.getElementById('playAudio').play()">Abspielen</button>
+                <button onclick="document.getElementById('playAudio').pause()">Pause</button>
+             
                 <script>
                     let path = "files/";
                     let extension = ".mp3"; // .mp3, .ogg, .m4a
@@ -29,7 +39,7 @@
                     var file = urlParams.get('source');
                     var audioUrl = path.concat(file).concat(extension);
                     document.getElementById("playAudio").src = audioUrl;
-                    // document.write(audioUrl); // for debugging only!
+                    //document.write(audioUrl); // for debugging only!
                 </script>
         </section>
         <section>
