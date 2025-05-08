@@ -27,7 +27,7 @@ Die Bereitstellung der Dateien sollte über ein privates Repository erfolgen. Di
 
 Alternativ kann auch ein klassisches Webhosting verwendet werden, dann müssen die Dateien mit einem FTP-Client verwaltet werden.
 
-### Clonen des Repository
+### Repository clonen
 
 TODO
 
