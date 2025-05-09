@@ -10,6 +10,7 @@ cd "/Users/stephan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Projek
 echo "Aktueller Branch:"
 git branch --show-current
 
+# Aktuelle Änderungen von Remote holen
 git fetch
 git pull
 
