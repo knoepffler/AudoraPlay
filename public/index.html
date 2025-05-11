@@ -9,32 +9,39 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
     <body>
-        <header class="header"></header>
+        <header>
             <nav class="navbar">
-                <div class="container">
+                <div class="container-header">
                     <a class="brand" href="index.html">AudoraPlay</a>
                 </div>
             </nav>
-        <section>
-            <div class="container">
-                    <h1>AudoraPlay</h1>
-                    <p>Bitte geben Sie die per E-Mail erhaltene persönliche Kennung ein.</p>
-                        <form action="player.html" method="get">
-                            <label for="source">Kennung</label>
-                            <input type="text" id="source" name="source" value="Beispiel1">
-                            <input type="submit" value="Senden">
-                        </form>
+        </header>
+            
+        <section class="player">
+            <div class="container-player">
+                <h1>AudoraPlay</h1>
+                <p>Bitte geben Sie die per E-Mail erhaltene persönliche Kennung ein.</p>
+                <form action="player.html" method="get">
+                    <label for="source">Kennung</label>
+                    <input type="text" id="source" name="source" value="Beispiel1">
+                    <input type="submit" value="Senden">
+                </form>
             </div>
         </section>
-        <footer class="footer">
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-                <li><a href="datenschutz.html">Datenschutz</a></li>
-                <li><a href="https://github.com/knoepffler/AudoraPlay"</a>AudoraPlay auf Github</li>
-            </ul>
-            <p><a href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
+
+        <footer>
+            <div class="container-footer"></div>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                    <li><a href="https://github.com/knoepffler/AudoraPlay">AudoraPlay auf Github</a></li>
+                </ul>
+                <p><a class="copyright" href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
         </footer>
+
     </body>
+
 </html>

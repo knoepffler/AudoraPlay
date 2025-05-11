@@ -9,24 +9,22 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
     <body>
-        <header class="header"></header>
+        <header>
             <nav class="navbar">
-                <div class="container">
+                <div class="container-header">
                     <a class="brand" href="index.html">AudoraPlay</a>
                 </div>
             </nav>
-        <section>
-            <div class="container">
+        </header>
+
+        <section class="player">
+            <div class="container-player">
                 <h1>AudoraPlay</h1>
-
-                
                 <p><a href="index.html">Zurück zur Eingabe</a></p>
-                <!-- 
-                <audio id="playAudio" controls oncontextmenu="return false;"></audio>
-            -->
 
-            <audio id="playAudio"></audio>
+                <audio id="playAudio"></audio>
                   
                 <button onclick="document.getElementById('playAudio').play()">Abspielen</button>
                 <button onclick="document.getElementById('playAudio').pause()">Pause</button>
@@ -41,22 +39,28 @@
                     document.getElementById("playAudio").src = audioUrl;
                     //document.write(audioUrl); // for debugging only!
                 </script>
+
         </section>
-        <section>
-            <div class="container">
+
+        <section class="warning">
+            <div class="container-warning">
                 <h3>HINWEISE</h3>
                 <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
                 <p>Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren!</p>
             </div>
         </section>
-        <footer class="footer">
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-                <li><a href="datenschutz.html">Datenschutz</a></li>
-                <li><a href="https://github.com/knoepffler/AudoraPlay"</a>AudoraPlay auf Github</li>
-            </ul>
-            <p><a href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
+
+        <footer>
+            <div class="container-footer"></div>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                    <li><a href="https://github.com/knoepffler/AudoraPlay">AudoraPlay auf Github</a></li>
+                </ul>
+                <p><a class="copyright" href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
         </footer>
+
     </body>
+    
 </html>
