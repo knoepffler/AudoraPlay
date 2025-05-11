@@ -42,11 +42,21 @@ section.player {
 
 }
 
-.play {
+.submit-button {
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: green;
+}
+
+button.play {
 
 }
 
-.pause {
+button.pause {
 
 }
 
@@ -55,6 +65,14 @@ section.warning{
 }
 
 .container-warning {
+
+}
+
+section.main {
+
+}
+
+.container-main {
 
 }
 
