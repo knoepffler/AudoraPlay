@@ -57,7 +57,7 @@ Ein Mischbetrieb mit mehreren verschiedenen Audio-Formaten ist nicht möglich. E
 **Beispiel''
 Es soll ausschließlich das M4A-Format verwendet werden, dann ist die Einstellung:
 
-    'let extension = ".m4a";
+    let extension = ".m4a";
 
 Die Dateien müssen dann entsprechend benannt werden:
 
