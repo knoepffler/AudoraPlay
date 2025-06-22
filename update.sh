@@ -3,8 +3,8 @@
 # AudoraPlay Update Script
 
 # In ein bestimmtes Git-Repository wechseln
+# Pfad anpassen und Kommentar (#) entfernen:
 # cd "/path/to/AudoraPlay" || exit 1
-cd "/Users/stephan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Projekte/_develop/AudoraPlay" || exit 1
 
 # Aktuellen Branch anzeigen
 echo "Aktueller Branch:"

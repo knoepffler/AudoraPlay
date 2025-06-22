@@ -1,47 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>AudoraPlay</title>
-    <meta name="description" content="Beschreibung der Website">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudoraPlay</title>
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/style.css">
 </head>
+<body>
+  <header>
+    AudoraPlay
+    <button class="theme-toggle" id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+  </header>
 
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="container-header">
-                    <a class="brand" href="index.html">AudoraPlay</a>
-                </div>
-            </nav>
-        </header>
-            
-        <section class="player">
-            <div class="container-player">
-                <h1>AudoraPlay</h1>
-                <p>Bitte geben Sie die per E-Mail erhaltene persönliche Kennung ein.</p>
-                <form action="player.html" method="get">
-                    <label for="source">Kennung</label>
-                    <input type="text" id="source" name="source" value="Beispiel1">
-                    <input type="submit" value="Senden" class="submit-button" >
-                </form>
-            </div>
-        </section>
+  <main>
+    <h1>AudoraPlay</h1>
+    <div class="info-link" onclick="openInfoModal()">
+      <span class="info-icon">ℹ️</span>
+      <span>Bitte beachten Sie die Hinweise</span>
+    </div>
+    <input type="text" id="filename" placeholder="Kennung hier eingeben">
+    <div class="button-center">
+      <button onclick="preparePlayback()">Laden</button>
+      <button class="reload-button" onclick="location.reload()">Seite neu laden</button>
+    </div>
+    <div id="message"></div>
 
-        <footer>
-            <div class="container-footer"></div>
-                <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="impressum.html">Impressum</a></li>
-                    <li><a href="datenschutz.html">Datenschutz</a></li>
-                    <li><a href="https://github.com/knoepffler/AudoraPlay">AudoraPlay auf Github</a></li>
-                </ul>
-                <p><a class="copyright" href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
-        </footer>
+    <audio id="audioplayer" hidden></audio>
 
-    </body>
+    <div id="custom-controls">
+      <div class="buttons">
+        <button onclick="playAudio()">Play</button>
+        <button onclick="pauseAudio()">Pause</button>
+        <button onclick="stopAudio()">Stop</button>
+      </div>
+    </div>
+  </main>
 
+  <footer>
+    <div>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </div>
+    <div>
+      <a href="https://github.com/knoepffler" target="_blank" rel="noopener noreferrer">AudoraPlay is Open Source</a>
+    </div>
+  </footer>
+
+  <div id="modal">
+    <div id="modal-content">
+      <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
+      <p class="warning">⚠️ Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren oder Bedienen von Maschinen!</p>
+      <button onclick="confirmPlayback()">OK</button>
+    </div>
+  </div>
+
+  <div id="info-modal">
+    <div id="info-modal-content">
+      <p>Bitte geben Sie die per E-Mail erhaltene persönliche Kennung ein.</p>
+      <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
+      <p class="warning">⚠️ Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren oder Bedienen von Maschinen!</p>
+      <button onclick="closeInfoModal()">OK</button>
+    </div>
+  </div>
+<script src="src/script/player.js"></script>
+</body>
 </html>

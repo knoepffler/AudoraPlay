@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>AudoraPlay – Datenschutz</title>
-    <meta name="description" content="Beschreibung der Website">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudoraPlay</title>
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/style.css">
 </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="container-header">
-                    <a class="brand" href="index.html">AudoraPlay</a>
-                </div>
-            </nav>
-        </header>
+<body>
+  <header>
+    <a href="index.html">AudoraPlay</a>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+  </header>
 
-        <section class="main">
-            <div class="container-main">
-                    <h1>Datenschutz</h1>
-                    <p>Text...</p>
-            </div>
-        </section>
+  <main>
+    <h1>Datenschutzerklärung</h1>
+    <p>Text ...</p>
+    
+  </main>
 
-        <footer>
-            <div class="container-footer"></div>
-                <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="impressum.html">Impressum</a></li>
-                    <li><a href="datenschutz.html">Datenschutz</a></li>
-                    <li><a href="https://github.com/knoepffler/AudoraPlay">AudoraPlay auf Github</a></li>
-                </ul>
-                <p><a class="copyright" href="https://www.knoepffler.net">opensource by knoepffler.net</a></p>
-        </footer>
-
-    </body>
-
+  <footer>
+    <div>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </div>
+    <div>
+      <a href="https://github.com/knoepffler" target="_blank" rel="noopener noreferrer">AudoraPlay is Open Source</a>
+    </div>
+  </footer>
+<script src="src/script/player.js"></script>
+</body>
 </html>
