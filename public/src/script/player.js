@@ -8,7 +8,6 @@ const themeToggle = document.getElementById('themeToggle');
 const filenameInput = document.getElementById('filename');
 const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
 
-let selectedFile = '';
 let selectedSrc = '';
 
 const userTheme = localStorage.getItem('theme');
@@ -58,7 +57,6 @@ function preparePlayback() {
     showMessage('Bitte eine Kennung eingeben.');
     return;
     }
-    selectedFile = name;
     checkAudioExists(name, 0);
 }
 
