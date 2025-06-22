@@ -4,6 +4,9 @@ const infoModal = document.getElementById('info-modal');
 const audioPlayer = document.getElementById('audioplayer');
 const message = document.getElementById('message');
 const controls = document.getElementById('custom-controls');
+const ratingSection = document.getElementById('rating-section');
+const ratingSelect = document.getElementById('rating');
+const ratingMessage = document.getElementById('rating-message');
 const themeToggle = document.getElementById('themeToggle');
 const filenameInput = document.getElementById('filename');
 const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
@@ -95,6 +98,12 @@ function loadAudio(src) {
     controls.style.display = 'flex';
     message.textContent = '';
     audioPlayer.play();
+    if (ratingSection) {
+        ratingSection.style.display = 'flex';
+        ratingSection.hidden = false;
+        if (ratingSelect) ratingSelect.value = '';
+        if (ratingMessage) ratingMessage.textContent = '';
+    }
 }
 
 function showMessage(text) {
@@ -115,6 +124,26 @@ function stopAudio() {
     if (audioPlayer) {
         audioPlayer.pause();
         audioPlayer.currentTime = 0;
+    }
+    if (ratingSection) {
+        ratingSection.style.display = 'none';
+        ratingSection.hidden = true;
+    }
+}
+
+function submitRating() {
+    if (!ratingSelect || !ratingMessage) return;
+    const value = ratingSelect.value;
+    if (!value) {
+        ratingMessage.style.color = 'red';
+        ratingMessage.textContent = 'Bitte eine Bewertung auswählen.';
+        return;
+    }
+    ratingMessage.style.color = 'green';
+    ratingMessage.textContent = `Bewertung ${value} gespeichert.`;
+    if (ratingSection) {
+        ratingSection.style.display = 'none';
+        ratingSection.hidden = true;
     }
 }
 
