@@ -23,7 +23,7 @@ https://audoraplay.knoepffler.net
 
 ## Installation & Hosting
 
-_AudoraPlay_ nutzt einen git-basierten Workflow. Die Dateien werden in den Ordner _Files_ abgelegt und anschließend das Shellscript 'update.sh' ausgeführt. Alternativ können natürlich die entsprechenden Git-Befehle manuell ausgeführt werden.
+_AudoraPlay_ nutzt einen git-basierten Workflow. Die Dateien werden in den Verzeichnis `public/audio` abgelegt und anschließend das Shellscript 'update.sh' ausgeführt. Alternativ können natürlich die entsprechenden Git-Befehle manuell ausgeführt werden.
 
 Die Bereitstellung der Dateien sollte über ein privates Repository erfolgen. Die Bereitstellung und den Zugriff auf die Website ermöglicht ein weiterer erforderlicher Dienst, z.B. Netlify, o.ä..
 
@@ -51,7 +51,7 @@ TODO ...
 
 ## Nutzung von _AudoraPlay_
 
-Die Bereitstellung der Audiodateien erfolgt über einen git-basierten Workflow. Die Audiodatei/en sind im Verzeichnis _audio_ abzulegen. In der 'player.js'-Datei kann unter 'extensions = das zu verwendene Dateiformat eingestellt werden. Die korrekte Extension wird automatisch ermittelt.
+Die Bereitstellung der Audiodateien erfolgt über einen git-basierten Workflow. Die Audiodatei/en sind im Verzeichnis _audio_ abzulegen. In der 'player.js'-Datei kann unter 'extensions' das zu verwendende Dateiformat eingestellt werden. Die korrekte Extension wird automatisch ermittelt.
 
 **Beispiel**
 
@@ -63,7 +63,7 @@ Nach dem Hinzufügen und Ausführen des 'update.sh'-Scripts wird durch Netlify (
 
 Es ist zu prüfen, ob eine Impressums und/oder Datenschutzerklärung erforderlich ist. Bei Bedarf können die enthaltenen Vorlagen angepasst und verwendet werden.
 
-Das Styling der Website kannn durch Hinzufügen oder Anpassungen in der '/src/styles.css' vorgenommen werden.
+Das Styling der Website kannn durch Hinzufügen oder Anpassungen in der public/src/css/style.css vorgenommen werden.
 
 ## Lizenz-Informationen
 
