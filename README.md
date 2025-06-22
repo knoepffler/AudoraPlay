@@ -19,7 +19,7 @@ https://audoraplay.knoepffler.net
 - Github-Konto
 - OPTIONAL: Netlify-Konto (o.ä.)
 - installiertes Git auf lokalem Computer
-- Alternativ: klassiches Webhosting
+- Alternativ: klassisches Webhosting
 
 ## Installation & Hosting
 
