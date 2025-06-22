@@ -65,6 +65,7 @@ Es ist zu prüfen, ob eine Impressums und/oder Datenschutzerklärung erforderlic
 
 Das Styling der Website kannn durch Hinzufügen oder Anpassungen in der public/src/css/style.css vorgenommen werden.
 
+
 ## Lizenz-Informationen
 
 Die Bereitstellung von _AudoraPlay_ erfolgt auf der MIT Open Source Lizenz.

@@ -8,7 +8,6 @@ const themeToggle = document.getElementById('themeToggle');
 const filenameInput = document.getElementById('filename');
 const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
 
-let selectedFile = '';
 let selectedSrc = '';
 
 const userTheme = localStorage.getItem('theme');
@@ -16,38 +15,48 @@ const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matc
 
 if (userTheme === 'dark' || (!userTheme && systemPrefersDark)) {
     document.documentElement.classList.add('dark-mode');
-    themeToggle.textContent = '☀️';
+    if (themeToggle) {
+        themeToggle.textContent = '☀️';
+    }
 }
 
 function toggleDarkMode() {
     document.documentElement.classList.toggle('dark-mode');
     const isDark = document.documentElement.classList.contains('dark-mode');
-    themeToggle.textContent = isDark ? '☀️' : '🌙';
+    if (themeToggle) {
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+    }
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-filenameInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-    e.preventDefault();
-    preparePlayback();
-    }
-});
+if (filenameInput) {
+    filenameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            preparePlayback();
+        }
+    });
+}
 
 function openInfoModal() {
-    infoModal.style.display = 'block';
+    if (infoModal) {
+        infoModal.style.display = 'block';
+    }
 }
 
 function closeInfoModal() {
-    infoModal.style.display = 'none';
+    if (infoModal) {
+        infoModal.style.display = 'none';
+    }
 }
 
 function preparePlayback() {
+    if (!filenameInput) return;
     const name = filenameInput.value.trim();
     if (!name) {
     showMessage('Bitte eine Kennung eingeben.');
     return;
     }
-    selectedFile = name;
     checkAudioExists(name, 0);
 }
 
@@ -62,7 +71,9 @@ function checkAudioExists(name, index) {
     .then(res => {
         if (res.ok) {
         selectedSrc = src;
-        modal.style.display = 'block';
+        if (modal) {
+            modal.style.display = 'block';
+        }
         } else {
         checkAudioExists(name, index + 1);
         }
@@ -71,11 +82,14 @@ function checkAudioExists(name, index) {
 }
 
 function confirmPlayback() {
-    modal.style.display = 'none';
+    if (modal) {
+        modal.style.display = 'none';
+    }
     loadAudio(selectedSrc);
 }
 
 function loadAudio(src) {
+    if (!audioPlayer || !controls || !message) return;
     audioPlayer.src = src;
     audioPlayer.hidden = false;
     controls.style.display = 'flex';
@@ -84,33 +98,40 @@ function loadAudio(src) {
 }
 
 function showMessage(text) {
-    message.textContent = text;
+    if (message) {
+        message.textContent = text;
+    }
 }
 
 function playAudio() {
-    audioPlayer.play();
+    if (audioPlayer) audioPlayer.play();
 }
 
 function pauseAudio() {
-    audioPlayer.pause();
+    if (audioPlayer) audioPlayer.pause();
 }
 
 function stopAudio() {
-    audioPlayer.pause();
-    audioPlayer.currentTime = 0;
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
 }
 
 document.addEventListener('keydown', function(e) {
-    if (modal.style.display === 'block' || infoModal.style.display === 'block') {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        if (modal.style.display === 'block') confirmPlayback();
-        if (infoModal.style.display === 'block') closeInfoModal();
-    }
-    if (e.key === 'Escape') {
-        e.preventDefault();
-        if (modal.style.display === 'block') modal.style.display = 'none';
-        if (infoModal.style.display === 'block') infoModal.style.display = 'none';
-    }
+    const modalVisible = modal && modal.style.display === 'block';
+    const infoVisible = infoModal && infoModal.style.display === 'block';
+    if (modalVisible || infoVisible) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (modalVisible) confirmPlayback();
+            if (infoVisible) closeInfoModal();
+        }
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            if (modalVisible) modal.style.display = 'none';
+            if (infoVisible) infoModal.style.display = 'none';
+        }
     }
 });
+
