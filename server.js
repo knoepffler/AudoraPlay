@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs');
+const https = require('https');
 const path = require('path');
 
 const app = express();
@@ -8,21 +8,38 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-const statsFile = path.join(__dirname, 'statistik.csv');
 
 app.post('/rating', (req, res) => {
   const { filename, rating } = req.body;
   if (!filename || !rating) {
     return res.status(400).send('Missing data');
   }
-  const line = `${filename},${rating}\n`;
-  fs.appendFile(statsFile, line, (err) => {
-    if (err) {
-      console.error('Failed to save rating', err);
-      return res.status(500).send('Error');
+
+  const data = JSON.stringify({ filename, rating });
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(data)
     }
-    res.sendStatus(200);
+  };
+
+  const url =
+    'https://script.google.com/macros/s/AKfycbw6qmAUdbGpEh_aYnM8TaUA9-LcxSCbRdng_ArgCwXtJCHgTmNXr3fdhpXGWmdEetbwuA/exec';
+
+  const request = https.request(url, options, googleRes => {
+    googleRes.on('data', () => {});
+    googleRes.on('end', () => res.sendStatus(200));
   });
+
+  request.on('error', err => {
+    console.error('Failed to forward rating', err);
+    res.status(500).send('Error');
+  });
+
+  request.write(data);
+  request.end();
 });
 
 app.listen(PORT, () => {
