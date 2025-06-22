@@ -63,7 +63,7 @@ Nach dem Hinzufügen und Ausführen des 'update.sh'-Scripts wird durch Netlify (
 
 Es ist zu prüfen, ob eine Impressums und/oder Datenschutzerklärung erforderlich ist. Bei Bedarf können die enthaltenen Vorlagen angepasst und verwendet werden.
 
-Das Styling der Website kannn durch Hinzufügen oder Anpassungen in der '/src/styles.css' vorgenommen werden.
+Das Styling der Website kann durch Hinzufügen oder Anpassungen in der '/src/styles.css' vorgenommen werden.
 
 ## Lizenz-Informationen
 
