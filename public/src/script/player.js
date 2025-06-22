@@ -12,6 +12,7 @@ const filenameInput = document.getElementById('filename');
 const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
 
 let selectedSrc = '';
+let currentFilename = '';
 
 const userTheme = localStorage.getItem('theme');
 const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -74,6 +75,7 @@ function checkAudioExists(name, index) {
     .then(res => {
         if (res.ok) {
         selectedSrc = src;
+        currentFilename = `${name}${extensions[index]}`;
         if (modal) {
             modal.style.display = 'block';
         }
@@ -139,6 +141,11 @@ function submitRating() {
         ratingMessage.textContent = 'Bitte eine Bewertung auswählen.';
         return;
     }
+    fetch('/rating', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: currentFilename, rating: value })
+    }).catch(() => {});
     ratingMessage.style.color = 'green';
     ratingMessage.textContent = `Bewertung ${value} gespeichert.`;
     if (ratingSection) {
