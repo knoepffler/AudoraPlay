@@ -1,5 +1,7 @@
 # AudoraPlay
 
+![Screenshot](screen.png)
+
 _AudoraPlay_ ist eine minimale Distributionslösung für Audiodateien an einen geschlossenen Nutzerkreis. Die Nutzer müssen eine individuelle Kennung eingeben, um an die für Sie bestimmte Audiodatei zu gelangen und diese abzuspielen. Die Kennung muss den Nutzern vorher mitgeteilt werden, z.B. per E-Mail. _AudoraPlay_ hat einen eigenständigen Audio-Player.
 
 Die Nutzerkennung entspricht dem Dateinamen der Audiodatei. Das Durchsuchen des Speicherorts für die Audiodateien ist für die Nutzer nicht möglich. 
