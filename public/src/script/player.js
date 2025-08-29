@@ -8,6 +8,11 @@ const themeToggle = document.getElementById('themeToggle');
 const filenameInput = document.getElementById('filename');
 const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
 
+// Survey modal elements
+const surveyModal = document.getElementById('survey-modal');
+const surveyIframe = document.getElementById('survey-iframe');
+const SURVEY_URL = 'https://flow.knoepffler.eu/form/276537ce-0db7-45bc-a74f-3adc5c763d0e';
+
 let selectedSrc = '';
 let currentFilename = '';
 
@@ -124,7 +129,8 @@ function stopAudio() {
 document.addEventListener('keydown', function(e) {
     const modalVisible = modal && modal.style.display === 'block';
     const infoVisible = infoModal && infoModal.style.display === 'block';
-    if (modalVisible || infoVisible) {
+    const surveyVisible = surveyModal && surveyModal.style.display === 'block';
+    if (modalVisible || infoVisible || surveyVisible) {
         if (e.key === 'Enter') {
             e.preventDefault();
             if (modalVisible) confirmPlayback();
@@ -134,7 +140,21 @@ document.addEventListener('keydown', function(e) {
             e.preventDefault();
             if (modalVisible) modal.style.display = 'none';
             if (infoVisible) infoModal.style.display = 'none';
+            if (surveyVisible) closeSurveyModal();
         }
     }
 });
 
+function openSurveyModal() {
+    if (!surveyModal || !surveyIframe) return;
+    // Set src when opening to avoid loading it upfront
+    surveyIframe.src = SURVEY_URL;
+    surveyModal.style.display = 'block';
+}
+
+function closeSurveyModal() {
+    if (!surveyModal || !surveyIframe) return;
+    surveyModal.style.display = 'none';
+    // Reset src to stop any network activity/media
+    surveyIframe.src = '';
+}

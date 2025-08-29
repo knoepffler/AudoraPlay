@@ -34,7 +34,7 @@
         <button onclick="pauseAudio()">Pause</button>
         <button onclick="stopAudio()">Stop</button>
       </div>
-        <a href="https://flow.knoepffler.eu/form/276537ce-0db7-45bc-a74f-3adc5c763d0e" class="survey-button">Bewerten Sie das Audio-Erlebnis</a>
+        <button type="button" class="survey-button" onclick="openSurveyModal()">Bewerten Sie das Audio-Erlebnis</button>
     </div>
   </main>
 
@@ -62,6 +62,17 @@
       <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
       <p class="warning">⚠️ Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren oder Bedienen von Maschinen!</p>
       <button onclick="closeInfoModal()">OK</button>
+    </div>
+  </div>
+
+  <div id="survey-modal" aria-hidden="true">
+    <div id="survey-modal-content" role="dialog" aria-label="Bewertungsformular">
+      <button class="survey-close" onclick="closeSurveyModal()" aria-label="Schließen">✕</button>
+      <div class="survey-header">
+        <h2>Bewerten Sie das Audio-Erlebnis</h2>
+        <a id="survey-fallback-link" href="https://flow.knoepffler.eu/form/276537ce-0db7-45bc-a74f-3adc5c763d0e" target="_blank" rel="noopener noreferrer">Öffnet sich nicht? Hier klicken</a>
+      </div>
+      <iframe id="survey-iframe" title="Bewertungsformular" src="" loading="lazy"></iframe>
     </div>
   </div>
 <script src="src/script/player.js"></script>
