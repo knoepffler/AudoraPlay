@@ -11,7 +11,7 @@ const extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.m4a'];
 // Survey modal elements
 const surveyModal = document.getElementById('survey-modal');
 const surveyIframe = document.getElementById('survey-iframe');
-const SURVEY_URL = 'https://docs.google.com/forms/d/1TDtam_qGu-gpxXFJxTM350tdR1WDHhDma9MpiF7r7r4/edit';
+const SURVEY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCJVdbMpfVYdJCJd5FKJ6elw8AgA0zgTpvZPHkTUoGTFd3dw/viewform?embedded=true';
 
 let selectedSrc = '';
 let currentFilename = '';
