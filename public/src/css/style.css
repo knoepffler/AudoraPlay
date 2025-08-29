@@ -1,0 +1,212 @@
+
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #000;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --accent-color: orange;
+    --accent-hover: darkorange;
+    --control-bg: #28a745;
+    --control-hover: #218838;
+}
+
+:root.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #3399ff;
+    --primary-hover: #1a75d1;
+    --accent-color: #ffa500;
+    --accent-hover: #ff8c00;
+    --control-bg: #44c767;
+    --control-hover: #2e8b57;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    position: relative;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+footer a {
+    color: var(--primary-color);
+    margin: 0 10px;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.info-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    justify-content: center;
+}
+.info-link:hover {
+    text-decoration: underline;
+}
+.info-icon {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+.button-center {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+button:hover {
+    background-color: var(--primary-hover);
+}
+.reload-button {
+    background-color: var(--accent-color);
+}
+.reload-button:hover {
+    background-color: var(--accent-hover);
+}
+.survey-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+.survey-button:hover {
+  opacity: 0.9;
+}
+#message {
+    margin-top: 1rem;
+    color: red;
+}
+#custom-controls {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+#custom-controls .buttons {
+    display: flex;
+    gap: 10px;
+}
+#custom-controls button {
+    background-color: var(--control-bg);
+}
+#custom-controls button:hover {
+    background-color: var(--control-hover);
+}
+#modal, #info-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#modal-content, #info-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    color: #000;
+}
+#modal-content p, #info-modal-content p {
+    margin-bottom: 1rem;
+}
+:root.dark-mode body #modal-content,
+:root.dark-mode body #info-modal-content {
+    background-color: #222;
+    color: #fff;
+}
+#modal-content button, #info-modal-content button {
+    margin-top: 15px;
+    background-color: var(--primary-color);
+}
+.warning {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+}

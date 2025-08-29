@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudoraPlay</title>
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+  <header>
+    AudoraPlay
+    <button class="theme-toggle" id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+  </header>
+
+  <main>
+    <h1>AudoraPlay</h1>
+    <div class="info-link" onclick="openInfoModal()">
+      <span class="info-icon">ℹ️</span>
+      <span>Bitte beachten Sie die Hinweise</span>
+    </div>
+    <input type="text" id="filename" placeholder="Kennung hier eingeben">
+    <div class="button-center">
+      <button onclick="preparePlayback()">Laden</button>
+      <button class="reload-button" onclick="location.reload()">Seite neu laden</button>
+    </div>
+    <div id="message"></div>
+
+    <audio id="audioplayer" hidden></audio>
+
+    <div id="custom-controls">
+      <div class="buttons">
+        <button onclick="playAudio()">Play</button>
+        <button onclick="pauseAudio()">Pause</button>
+        <button onclick="stopAudio()">Stop</button>
+      </div>
+        <a href="https://flow.knoepffler.eu/form/276537ce-0db7-45bc-a74f-3adc5c763d0e" class="survey-button">Bewerten Sie das Audio-Erlebnis</a>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </div>
+    <div>
+      <a href="https://github.com/knoepffler" target="_blank" rel="noopener noreferrer">AudoraPlay is Open Source</a>
+    </div>
+  </footer>
+
+  <div id="modal">
+    <div id="modal-content">
+      <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
+      <p class="warning">⚠️ Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren oder Bedienen von Maschinen!</p>
+      <button onclick="confirmPlayback()">OK</button>
+    </div>
+  </div>
+
+  <div id="info-modal">
+    <div id="info-modal-content">
+      <p>Bitte geben Sie die per E-Mail erhaltene persönliche Kennung ein.</p>
+      <p>Verwenden Sie zum Anhören der Audio-Datei möglichst Kopfhörer.</p>
+      <p class="warning">⚠️ Hören Sie die Audio-Datei nicht während Sie konzentriert und aufmerksam sein müssen, z.B. beim Autofahren oder Bedienen von Maschinen!</p>
+      <button onclick="closeInfoModal()">OK</button>
+    </div>
+  </div>
+<script src="src/script/player.js"></script>
+</body>
+</html>
