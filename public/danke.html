@@ -6,6 +6,32 @@
   <title>AudoraPlay</title>
   <link rel="stylesheet" href="src/css/reset.css">
   <link rel="stylesheet" href="src/css/style.css">
+  <style>
+    html, body { height: 100%; }
+    body { margin: 0; }
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      padding: 16px;
+    }
+    button#close-modal {
+      background-color: var(--primary-color, #007bff);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button#close-modal:hover {
+      filter: brightness(0.95);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -15,8 +41,23 @@
   <main>
     <h1>Vielen Dank!</h1>
     <p>Vielen Dank für Ihre Bewertung.</p>
-    
+    <button id="close-modal" type="button">Schließen</button>
   </main>
-
+  <script>
+    (function() {
+      var btn = document.getElementById('close-modal');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        try {
+          if (window.parent && typeof window.parent.closeSurveyModal === 'function') {
+            window.parent.closeSurveyModal();
+            return;
+          }
+        } catch (e) { /* cross-origin guard */ }
+        // Fallback: try to close current window/tab if opened separately
+        window.close();
+      });
+    })();
+  </script>
 </body>
 </html>
